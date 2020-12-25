@@ -92,7 +92,6 @@ library(gprofiler2)
 
     Idents(datExpr) <- "new.cluster.ids"
     datExpr$cluster_genotype <- paste(Idents(datExpr), datExpr$Genotype, sep = "_")
-    datExpr$cluster_time_genotype <- paste(Idents(datExpr), datExpr$Time, datExpr$Genotype, sep = "_")
     Idents(datExpr) <- "cluster_genotype"
     clusterNum=data.frame(table(datExpr$new.cluster.ids))
 
