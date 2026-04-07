@@ -1,0 +1,35 @@
+# Setup main project folder
+  mkdir Fusion_organoid_single_cell_2020
+
+# change directory to setup project subfolders
+  cd Fusion_organoid_single_cell_2020
+
+# folder for raw fastq files
+  mkdir fastq 
+
+# folder for code (.sh files)
+  mkdir code
+
+# folder for cell ranger and other packages
+  mkdir bin
+  cd bin
+# download cell ranger with wget
+  wget -O cellranger-4.0.0.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-4.0.0.tar.gz?Expires=1595943196&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZi4xMHhnZW5vbWljcy5jb20vcmVsZWFzZXMvY2VsbC1leHAvY2VsbHJhbmdlci00LjAuMC50YXIuZ3oiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1OTU5NDMxOTZ9fX1dfQ__&Signature=OxvtpbFPHRhGggbZ9~r9Uhpuw1h03kxLcssWPVPH86XpymeRdA9ApTEt1V~XEgqIAPihslwYHJW6ZbkEAeagmsfr7ngDlJnQjz1hfzBAr15CaDUxffzRcJGYQZdlJ5phCnLcpvarlCeDHfnvTdL40cWAtySqCrjXXHfwu1VhCHfIznzj8XN3yqewVmn4vmNC26rzJoS5JQGMa3wT9Zmx8DRxZSXCYbl1qaqz6pX2ndx3WbgwyYPu5bnPS8LPvK~vXTPS0gjjXVKzFQD5gFayka3XKwfncEOg~Dog6W9GRw4H8RhBwNWfxwVYIwSVqJoHxYydGeDO5nDDzhjBLTdmVA__&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA"
+# unpack cell ranger - note its using python 2.7
+  tar -xzvf cellranger-4.0.0.tar.gz
+
+# folder for annotation files
+  mkdir annotation
+  cd annotation
+  mkdir GRCh38
+  cd GRCh38
+# download reference (human GRCh38) - July 27 2020
+  wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2020-A.tar.gz
+# upack the reference
+  tar -xzvf refdata-gex-GRCh38-2020-A.tar.gz
+
+# add cell ranger and the reference to your path
+  #export PATH=/opt/cellranger-4.0.0:$PATH
+  #export PATH=/opt/refdata-gex-GRCh38-2020-A:$PATH
+
+
