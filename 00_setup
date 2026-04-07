@@ -1,3 +1,8 @@
+## This will setup a main project folder with subfolders (fastq, code, bin, and annotation). 
+    ## Raw fastq are in 'fastq'
+    ## Cell ranger is setup in 'bin'
+    ## GRCh38 files are setup in 'annotation'
+
 # Setup main project folder
   mkdir Fusion_organoid_single_cell_2020
 
@@ -6,6 +11,23 @@
 
 # folder for raw fastq files
   mkdir fastq 
+  cd fastq
+  ls 
+  # Each sample has a folder of fastq files
+    # D100_Ctrl_docked_1   D100_Rett_docked_1   D56_Ctrl_unfused_1  D70_Rett_docked_1
+    # D100_Ctrl_docked_2   D100_Rett_docked_2   D56_Rett_unfused_1
+    # D100_Ctrl_unfused_1  D100_Rett_unfused_1  D70_Ctrl_docked_1
+  # Within each sample folder there are 2 lanes (L001 and L002), each has an I1, R1, and R2 fastq.gz file
+  ls D56_Ctrl_unfused_1/
+    # __D56_Ctrl_unfused_1.mro
+    # D56_Ctrl_unfused_1_S3_L001_I1_001.fastq.gz
+    # D56_Ctrl_unfused_1_S3_L001_R1_001.fastq.gz
+    # D56_Ctrl_unfused_1_S3_L001_R2_001.fastq.gz
+    # D56_Ctrl_unfused_1_S3_L002_I1_001.fastq.gz
+    # D56_Ctrl_unfused_1_S3_L002_R1_001.fastq.gz
+    # D56_Ctrl_unfused_1_S3_L002_R2_001.fastq.gz
+cd ..
+# Now back in project folder
 
 # folder for code (.sh files)
   mkdir code
@@ -15,8 +37,10 @@
   cd bin
 # download cell ranger with wget
   wget -O cellranger-4.0.0.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-4.0.0.tar.gz?Expires=1595943196&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZi4xMHhnZW5vbWljcy5jb20vcmVsZWFzZXMvY2VsbC1leHAvY2VsbHJhbmdlci00LjAuMC50YXIuZ3oiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1OTU5NDMxOTZ9fX1dfQ__&Signature=OxvtpbFPHRhGggbZ9~r9Uhpuw1h03kxLcssWPVPH86XpymeRdA9ApTEt1V~XEgqIAPihslwYHJW6ZbkEAeagmsfr7ngDlJnQjz1hfzBAr15CaDUxffzRcJGYQZdlJ5phCnLcpvarlCeDHfnvTdL40cWAtySqCrjXXHfwu1VhCHfIznzj8XN3yqewVmn4vmNC26rzJoS5JQGMa3wT9Zmx8DRxZSXCYbl1qaqz6pX2ndx3WbgwyYPu5bnPS8LPvK~vXTPS0gjjXVKzFQD5gFayka3XKwfncEOg~Dog6W9GRw4H8RhBwNWfxwVYIwSVqJoHxYydGeDO5nDDzhjBLTdmVA__&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA"
-# unpack cell ranger - note its using python 2.7
+# unpack cell ranger - note using python 2.7
   tar -xzvf cellranger-4.0.0.tar.gz
+# add cell ranger to your path
+  # export PATH=/opt/cellranger-4.0.0:$PATH
 
 # folder for annotation files
   mkdir annotation
@@ -27,9 +51,9 @@
   wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2020-A.tar.gz
 # upack the reference
   tar -xzvf refdata-gex-GRCh38-2020-A.tar.gz
+# add the reference to your path
+  # export PATH=/opt/refdata-gex-GRCh38-2020-A:$PATH
 
-# add cell ranger and the reference to your path
-  #export PATH=/opt/cellranger-4.0.0:$PATH
-  #export PATH=/opt/refdata-gex-GRCh38-2020-A:$PATH
+  
 
 
