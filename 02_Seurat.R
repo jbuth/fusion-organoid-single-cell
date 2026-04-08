@@ -1,3 +1,7 @@
+# NOTE:
+# This script represents the core analysis workflow used in this project.
+# Some paths (e.g., FASTQ_folder, output directories) should be defined by the user.
+
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
 
