@@ -33,7 +33,7 @@ DATA_DIR=${BASE_DIR}/fusion-organoid-single-cell/fastq
 
 ## --- Change to data directory --- ##
 
-cd "${DATA_DIR} || exit" || exit
+cd "${DATA_DIR}" || exit
 
 ## ---- Batch submit qsub jobs ---- ##
 
