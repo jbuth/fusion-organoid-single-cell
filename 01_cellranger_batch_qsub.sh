@@ -17,6 +17,7 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 ## Subdirectories
 CODE_DIR="${BASE_DIR}/fusion-organoid-single-cell/code"
+mkdir -p "${CODE_DIR}/log"
 DATA_DIR="${BASE_DIR}/fusion-organoid-single-cell/fastq"
 
 ## --- Data directory structure --- ##
