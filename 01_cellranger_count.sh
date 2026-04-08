@@ -1,11 +1,13 @@
 #!/bin/bash
 
-DATA_DIR=/path/to/FASTQ
-name=$1 # sample name
-cellranger_ref_data=/bin/refdata-gex-GRCh38-2020-A
+name=$1 # sample folder name from previous script
+BASE_DIR=$2 # saved base directory from previous script
+DATA_DIR=${BASE_DIR}/fusion-organoid-single-cell/fastq
+
+ref_data=${BASE_DIR}/fusion-organoid-single-cell/annotation/refdata-gex-GRCh38-2020-A
+cellranger_dir=${BASE_DIR}/fusion-organoid-single-cell/bin/cellranger-4.0.0
 fastq_path=${DATA_DIR}/${name}
-cellranger_dir=/path/to/cellranger-4.0.0
 
-cd ${DATADIR}/${name}
+cd "${DATA_DIR}"/"${name} || exit" || exit
 
-${cellranger_dir}/cellranger count --id=${name} --transcriptome=${cellranger_ref_data} --fastqs=${fastq_path}
+"${cellranger_dir}"/cellranger count --id="${name}" --transcriptome="${ref_data}" --fastqs="${fastq_path}"
