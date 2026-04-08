@@ -30,6 +30,7 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
     - annotation/
       - refdata-gex-GRCh38-2020-A
     - fastq/
+    - cellranger/
     - R/
       - 02_filtering_normalization_differentialexpression_GO
       - 03_scDC
