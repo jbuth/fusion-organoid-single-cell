@@ -16,8 +16,7 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
 
 ## Code Overview:
 - 01: Bash scripts to process fastq with the Cell Ranger 4.0.0 pipeline (FASTQ -> count matrix)
-- 02: R code for filtering, batch correction (LIGER), normalization, and differential expression using Seurat (version 3.2.0)
-- 03: R code to calculate bootstrapped confidence intervals for cell-type proportions using single cell differential composition analysis (scDC; see https://sydneybiox.github.io/scDC/index.html for additional information)
+- 02: R code using Seurat (version 3.2.0) for filtering, batch correction (LIGER), normalization, differential expression, pathway analysis, and calculation of bootstrapped confidence intervals for cell-type proportions using single cell differential composition analysis (scDC; see https://sydneybiox.github.io/scDC/index.html for additional information)
 
 ## Directory Structure:
 - fusion-organoid-single-cell/
@@ -32,7 +31,6 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
     - fastq/
     - cellranger/
     - R/
-      - 02_filtering_normalization_differentialexpression_GO
-      - 03_scDC
+      - 02_Seurat.R
 
 
