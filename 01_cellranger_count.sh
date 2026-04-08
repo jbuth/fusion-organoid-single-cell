@@ -8,6 +8,6 @@ ref_data=${BASE_DIR}/fusion-organoid-single-cell/annotation/refdata-gex-GRCh38-2
 cellranger_dir=${BASE_DIR}/fusion-organoid-single-cell/bin/cellranger-4.0.0
 fastq_path=${DATA_DIR}/${name}
 
-cd "${DATA_DIR}"/"${name} || exit" || exit
+cd "${DATA_DIR}/${name}" || exit
 
 "${cellranger_dir}"/cellranger count --id="${name}" --transcriptome="${ref_data}" --fastqs="${fastq_path}"
