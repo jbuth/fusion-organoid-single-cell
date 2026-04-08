@@ -1,6 +1,6 @@
 # fusion-organoid-single-cell
 
-## This repository contains code to process single-cell RNAseq data presented in: 
+## This repository contains code to process single-cell RNA-seq data presented in: 
 Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural oscillations and epileptiform changes in human brain organoids. Nat Neurosci 24, 1488–1500 (2021). https://doi.org/10.1038/s41593-021-00906-5
 
 ## Dataset Description:
@@ -14,8 +14,11 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
 - The raw dataset is available at GEO under the accession number GSE165577: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165577
 - A Seurat object containing the processed single-cell RNA sequencing data is available at zenodo: https://doi.org/10.5281/zenodo.5732813
 
+## Pipeline Overview
+FASTQ → Cell Ranger (count matrix generation) → Seurat (filtering, batch correction, normalization, clustering, differential expression) → scDC (cell-type proportion analysis)
+
 ## Code Overview:
-- 01: Bash scripts to process fastq with the Cell Ranger 4.0.0 pipeline (FASTQ -> count matrix)
+- 01: Bash scripts to run Cell Ranger 4.0.0 (FASTQ → gene expression count matrix)
 - 02: R code using Seurat (version 3.2.0) for filtering, batch correction (LIGER), normalization, differential expression, pathway analysis, and calculation of bootstrapped confidence intervals for cell-type proportions using single cell differential composition analysis (scDC; see https://sydneybiox.github.io/scDC/index.html for additional information)
 
 ## Directory Structure:
