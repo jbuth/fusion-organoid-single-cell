@@ -134,3 +134,43 @@ datExprInh <- FindClusters(datExprInh, resolution = 0.3) # 7 clusters
 datExprInh <- RunUMAP(datExprInh, dims = 1:ncol(datExprInh[["iNMF"]]), reduction = "iNMF")
 
 Inhavgexp = AverageExpression(datExprInh, return.seurat = T, add.ident = 'Genotype') # avg for heatmap visualization
+
+
+# scDC: Single cell differential composition analysis https://sydneybiox.github.io/scDC/index.html
+
+# install.packages(c("boot", "class", "cli", "codetools", "digest", "glue", "IRkernel", 
+#                    "jsonlite", "KernSmooth", "lattice", "MASS", "Matrix", "mgcv", "nlme", "nnet", "pbdZMQ", 
+#                    "pillar", "rlang", "spatial", "survival", "vctrs", "DescTools", "lme4", "reshape2", "ggridges", "lme4", "mice"))
+# BiocManager::install(c("BiocNeighbors","scater","scran"))
+# devtools::install_github("taiyunkim/scClustBench")
+# devtools::install_github("SydneyBioX/scDC")
+
+library(scDC)
+
+# for all clusters
+
+    cellTypes = datExpr$new.cluster.ids # cluster assignments 
+    subject = datExpr$Genotype # genotype assignments
+
+    res_percentile = scDC_noClustering(cellTypes, subject, calCI = TRUE, calCI_method = "percentile", verbose = TRUE)
+
+    res_percentile <- res$results
+
+# for inhibitory cluster (reclustered)
+  
+  # select cells from inhibitory cluster
+      mycells=WhichCells(datExpr, idents = "Inh.Neurons") 
+      datExprInh = subset(datExpr, cells=mycells)
+      Idents(datExprInh) <- "orig.ident"
+  
+  # recluster 
+      datExprInh <- FindNeighbors(datExprInh, reduction = "iNMF", dims = 1:20)
+      datExprInh <- FindClusters(datExprInh, resolution = 0.3)
+      datExprInh <- RunUMAP(datExprInh, dims = 1:ncol(datExprInh[["iNMF"]]), reduction = "iNMF")
+  
+  cellTypesInh = datExprInh$seurat_clusters # cluster assignments 
+  subjectInh = datExprInh$Genotype # genotype assignments
+
+  res_percentile_Inh = scDC_noClustering(cellTypesInh, subjectInh, calCI = TRUE, calCI_method = "percentile", verbose = TRUE)
+
+  res_percentile_Inh <- res_percentile_Inh$results
