@@ -15,7 +15,7 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
 - A Seurat object containing the processed single-cell RNA sequencing data is available at zenodo: https://doi.org/10.5281/zenodo.5732813
 
 ## Code Overview:
-- 01: Bash scripts to process fastq with the Cell Ranger 4.0.0 pipeline (fastq -> counts)
+- 01: Bash scripts to process fastq with the Cell Ranger 4.0.0 pipeline (FASTQ -> count matrix)
 - 02: R code for filtering, batch correction (LIGER), normalization, and differential expression using Seurat (version 3.2.0)
 - 03: R code to calculate bootstrapped confidence intervals for cell-type proportions using single cell differential composition analysis (scDC; see https://sydneybiox.github.io/scDC/index.html for additional information)
 
