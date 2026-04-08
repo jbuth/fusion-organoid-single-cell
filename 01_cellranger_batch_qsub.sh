@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ## Save this script as:
-## /path/to/fusion-organoid-single-cell/code/01_cellranger_count_batch_run.sh
+## /path/to/fusion-organoid-single-cell/code/01_cellranger_batch_qsub.sh
 
 ## To execute, cd into the code folder, then type:
-## ./01_cellranger_count_batch_run.sh
+## ./01_cellranger_batch_qsub.sh
 
 ## Description:
 ## Loops through sample folders in /fastq and submits one qsub job per sample
-## qsub runs cellranger count via the script Step1_qsub_cellranger_count.sh
+## qsub runs cellranger count via the script 01_cellranger_count.sh
 
 ## ------ Setup directories ------- ##
 
@@ -47,6 +47,6 @@ for file in */; do
   ## shared memory 16G x 8 cores = 128G total
   qsub -o "${CODE_DIR}"/log -e "${CODE_DIR}"/log \
   -l h_rt=8:00:00,h_data=16G,highp \
-  -pe shared 8 "${CODE_DIR}"/Step1_qsub_cellranger_count.sh "${name}"
+  -pe shared 8 "${CODE_DIR}"/01_cellranger_count.sh "${name}"
   
 done
