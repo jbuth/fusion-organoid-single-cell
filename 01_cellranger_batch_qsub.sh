@@ -47,6 +47,6 @@ for file in */; do
   ## shared memory 16G x 8 cores = 128G total
   qsub -o "${CODE_DIR}"/log -e "${CODE_DIR}"/log \
   -l h_rt=8:00:00,h_data=16G,highp \
-  -pe shared 8 "${CODE_DIR}"/01_cellranger_count.sh "${name}"
+  -pe shared 8 "${CODE_DIR}"/01_cellranger_count.sh "${name}" "${BASE_DIR}"
   
 done
