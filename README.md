@@ -24,6 +24,7 @@ FASTQ → Cell Ranger (count matrix generation) → Seurat (filtering, batch cor
 
 ## Directory Structure:
 Organized to separate raw data, processing scripts, and downstream analysis.
+```
 - fusion-organoid-single-cell/
     - code/
       - log
@@ -34,7 +35,8 @@ Organized to separate raw data, processing scripts, and downstream analysis.
     - annotation/
       - refdata-gex-GRCh38-2020-A
     - fastq/
-    - cellranger/  # Cell Ranger output directories (one per sample)
+    - cellranger/       # Cell Ranger output directories (one per sample)
     - R/
       - 02_Seurat.R
+```
 
