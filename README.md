@@ -15,7 +15,7 @@ Samarasinghe, R.A., Miranda, O.A., Buth, J.E. et al. Identification of neural os
 - The raw dataset is available at GEO under the accession number GSE165577: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165577
 - A Seurat object containing the processed single-cell RNA-seq data is available at Zenodo: https://doi.org/10.5281/zenodo.5732813
 
-## Pipeline Overview
+## Pipeline Overview:
 FASTQ → Cell Ranger (count matrix generation) → Seurat (filtering, batch correction, normalization, clustering, differential expression, pathway analysis) → scDC (cell-type proportion analysis)
 
 ## Code Overview:
