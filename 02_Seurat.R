@@ -111,7 +111,6 @@ library(gprofiler2)
           up.results = gost(up.query, organism = "hsapiens",ordered_query = TRUE,
                           multi_query = FALSE, significant = TRUE, exclude_iea = FALSE,
                           measure_underrepresentation = FALSE, evcodes = FALSE,
-                          user_threshold = 0.05, correction_method = c("bonferroni"),
                           user_threshold = 0.05, correction_method = c("bonferroni"), custom_bg = rownames(datExpr),
                           numeric_ns = "", sources = c("GO:BP","GO:MF","GO:CC","HP"), as_short_link = TRUE)
           print(up.results)
@@ -158,19 +157,9 @@ library(scDC)
 
     res_percentile = scDC_noClustering(cellTypes, subject, calCI = TRUE, calCI_method = "percentile", verbose = TRUE)
 
-    res_percentile <- res$results
+    res_percentile <- res_percentile$results
 
 # for inhibitory cluster (reclustered)
-  
-  # select cells from inhibitory cluster
-      mycells=WhichCells(datExpr, idents = "Inh.Neurons") 
-      datExprInh = subset(datExpr, cells=mycells)
-      Idents(datExprInh) <- "orig.ident"
-  
-  # recluster 
-      datExprInh <- FindNeighbors(datExprInh, reduction = "iNMF", dims = 1:20)
-      datExprInh <- FindClusters(datExprInh, resolution = 0.3)
-      datExprInh <- RunUMAP(datExprInh, dims = 1:ncol(datExprInh[["iNMF"]]), reduction = "iNMF")
   
   cellTypesInh = datExprInh$seurat_clusters # cluster assignments 
   subjectInh = datExprInh$Genotype # genotype assignments
