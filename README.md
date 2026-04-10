@@ -23,7 +23,7 @@ FASTQ → Cell Ranger (count matrix generation) → Seurat (filtering, batch cor
 - 02: R code using Seurat (v3.2.0) for filtering, batch correction (LIGER), normalization, clustering, differential expression, pathway analysis, and scDC (v0.1.0) for calculation of bootstrapped confidence intervals for cell-type proportions (see https://sydneybiox.github.io/scDC/index.html)
 
 ## Directory Structure:
-Organized to separate raw data, processing scripts, and downstream analysis.
+The bash scripts (01) were run on an HPC cluster (UCLA Hoffman2). The R script (02) was run locally, with the Cell Ranger output copied to the local project folder.
 ```
 - fusion-organoid-single-cell/
     - code/
